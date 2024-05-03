@@ -35,12 +35,13 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    data_in_file = np.loadtxt(args.infile)
+    datainfile = np.loadtxt(args.infile)
 
-    data_in_file -= data_in_file.mean()
+    datainfile -= datainfile.mean()
 
-    SD = data_in_file.std()
+    SD = datainfile.std()
 
-    processed = data_in_file / SD
+    processed = datainfile / SD
 
     np.savetxt(args.outfile, processed, fmt='%.2e')
+
